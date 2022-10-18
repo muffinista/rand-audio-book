@@ -6,9 +6,19 @@
   :dependencies [
     [org.clojure/clojure "1.11.1"]
     [org.clojure/tools.cli "1.0.206"]
-    [overtone/overtone "0.10.5"]
+    [org.clojure/data.json "0.2.6"]
+    [overtone/overtone "0.10.6"]
+    [com.cognitect.aws/api "0.8.596"]
+    [com.cognitect.aws/endpoints "1.1.12.307"]
+    [com.cognitect.aws/polly "822.2.1193.0"]
+    [lynxeyes/dotenv "1.0.2"]
   ]
-  :main rand-audio-book/core
+  :main  ^:skip-aot rand-audio-book.core
+  :jvm-opts ^:replace []
   :native-path "native"
-  :source-paths ["src"])
+  :source-paths ["src"]
+  :target-path "target/%s"
+  :sc-args {:max-buffers 4096}
+  :profiles {:uberjar {:aot :all}})
+
   
