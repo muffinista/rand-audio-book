@@ -7,6 +7,7 @@ load_dotenv()  # take environment variables from .env.
 
 import pathlib
 import os
+import time
 import azure.cognitiveservices.speech as speechsdk
 
 output_dir = "samples/"
@@ -68,7 +69,7 @@ phrases.sort()
 
 for phrase in phrases:
     filename = os.path.join(output_dir, phrase + ".wav")
-    if os.path.isfile(filename) and os.environ.get('FORCE', False) != "True":
+    if os.path.isfile(filename) and os.environ.get('FORCE', False) != "True" and os.path.getsize(filename) > 0:
         print("Skipping " + filename)
         continue
 
@@ -78,3 +79,4 @@ for phrase in phrases:
     print(ssml)
 
     speech_synthesis_to_file(ssml, filename)
+    time.sleep(1)
