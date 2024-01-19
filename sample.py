@@ -18,7 +18,9 @@ voice = "DavisNeural"
 speech_key, service_region = os.environ['AZURE_SPEECH_KEY'], os.environ['AZURE_SPEECH_REGION']
 
 # Creates an instance of a speech config with specified subscription key and service region.
+
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+
 # Sets the synthesis output format.
 # The full list of supported format can be found here:
 # https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs
@@ -60,7 +62,7 @@ def to_ssml(str):
 
 pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
 
-with open("data/short.txt", encoding="utf-8") as f:
+with open("data/digits.txt", encoding="utf-8") as f:
     read_data = f.read()
 
 # get the unique set of phrases
@@ -79,4 +81,7 @@ for phrase in phrases:
     print(ssml)
 
     speech_synthesis_to_file(ssml, filename)
-    time.sleep(1)
+    time.sleep(2)
+
+# docker build -t rand-audio -f Dockerfile .
+# docker run --rm -it -v "$PWD":/usr/src/app rand-audio bash

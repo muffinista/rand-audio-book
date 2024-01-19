@@ -1,44 +1,21 @@
 #!/usr/bin/env ruby
 
-require 'aws-sdk-polly'
+require "fileutils"
 require "wavefile"
 include WaveFile
 
 LINES_PER_CHAPTER = 40
 
-VOICE = "Joanna"
-DATADIR = "data/voices/#{VOICE}"
+DATADIR = "samples"
 dest = "output"
 
-SAMPLE_SSML = JSON.parse(File.read("data/voice-samples.json")).map { |k, v| [k.gsub(/.wav$/, ''), v]}.to_h
-
-FileUtils.mkdir_p( DATADIR)
+FileUtils.mkdir_p(DATADIR)
 FileUtils.mkdir_p(dest)
 
 def sample_for(contents)
   result = "#{DATADIR}/#{contents}.wav"
-  ogg_result = "#{DATADIR}/#{contents}.ogg"
-
-  if !File.exist?(result)
-    polly = Aws::Polly::Client.new
-    contents = SAMPLE_SSML[contents] if SAMPLE_SSML.key?(contents)
-    # contents = "<speak><amazon:domain name=\"news\">#{contents}</amazon:domain></speak>" unless contents.match?(/<speak/)
-    contents = "<speak>#{contents}</speak>" unless contents.match?(/<speak/)
-    puts contents
-
-    resp = polly.synthesize_speech({
-      output_format: "ogg_vorbis",
-      text: contents,
-      text_type: 'ssml',
-      voice_id: VOICE,
-    })
-
-    IO.copy_stream(resp.audio_stream, ogg_result)
-
-    puts 'Wrote Polly output to: ' +  ogg_result
-
-    `sox #{ogg_result} --norm=-0.1 #{result}`
-  end
+  raise StandardError.new "Missing #{result}" if !File.exist?(result)
+  raise StandardError.new "null #{result}" if File.size(result).zero?
 
   result
 end
@@ -48,20 +25,60 @@ def blank
   Buffer.new(blank_data, Format.new(:mono, :float, 24000))
 end
 
-def add_sample(writer, char)
-  Reader.new(sample_for(char)).each_buffer do |buffer|
-    writer.write(buffer)
-  end
+# def add_sample(writer, char)
+#   Reader.new(sample_for(char)).each_buffer do |buffer|
+#     writer.write(buffer)
+#   end
+#   writer.write(blank)
+# end
+
+def add_break(writer)
   writer.write(blank)
 end
 
-def add_blank(writer)
+def add_pause(writer)
   writer.write(blank)
+end
+
+def add_phrase(writer, phrase)
+  puts phrase
+  Reader.new(sample_for(phrase)).each_buffer do |buffer|
+    writer.write(buffer)
+  end
 end
 
 
 # lines = File.read("data/digits.txt").split(/\n/)
 lines = File.read("data/short.txt").split(/\n/)
+
+# soxi samples/00000.wav
+
+# Input File     : 'samples/00000.wav'
+# Channels       : 1
+# Sample Rate    : 44100
+# Precision      : 16-bit
+# Duration       : 00:00:04.54 = 200038 samples = 340.201 CDDA sectors
+# File Size      : 400k
+# Bit Rate       : 706k
+# Sample Encoding: 16-bit Signed Integer PCM
+
+data = `soxi #{DATADIR}/00000.wav`
+
+data = data.split(/\n/).select { |l| l.include?(':') }.map { |l| l.split(':', 2).map(&:strip) }.to_h
+# {"Input File"=>"'samples/00000.wav'",
+#  "Channels"=>"1",
+#  "Sample Rate"=>"44100",
+#  "Precision"=>"16-bit",
+#  "Duration"=>"00:00:04.54 = 200038 samples = 340.201 CDDA sectors",
+#  "File Size"=>"400k",
+#  "Bit Rate"=>"706k",
+#  "Sample Encoding"=>"16-bit Signed Integer PCM"}
+
+puts data.inspect
+
+channels = data['Channels'].to_i == 2 ? :stereo : :mono
+precision = data['Precision'] == '16-bit' ? :pcm_16 : :pcm_32
+sample_rate = data['Sample Rate'].to_i
 
 chapter = 0
 lines.each_slice(LINES_PER_CHAPTER).each do |digits|
@@ -69,26 +86,35 @@ lines.each_slice(LINES_PER_CHAPTER).each do |digits|
   chapter = chapter + 1
   puts chapter
   puts digits.inspect
-  Writer.new("#{dest}/chapter#{chapter}.wav", Format.new(:stereo, :pcm_16, 24000)) do |writer|
+  # Riff44100Hz16BitMonoPcm
+  # :mono, :pcm_16, 44100
+  Writer.new("#{dest}/chapter#{chapter}.wav", Format.new(channels, precision, sample_rate)) do |writer|
     digits.each do |line|
-      puts line
+      # puts line
       groupings = line.split(/ +/)
-      index = groupings.shift
-
-      puts index
-      index.split(//).each do |char|
-        add_sample(writer, char)
+      puts groupings.inspect
+      groupings.each do |phrase|
+        add_phrase(writer, phrase)
+        add_pause(writer)
       end
-      add_blank(writer)
+      add_break(writer)
 
-      groupings.each do |grouping|
-        puts grouping
-        sleep 1
-        grouping.split(//).each do |char|
-          add_sample(writer, char)
-        end
-        add_blank(writer)
-      end
+      # index = groupings.shift
+
+      # puts index
+      # index.split(//).each do |char|
+      #   add_sample(writer, char)
+      # end
+      # add_blank(writer)
+
+      # groupings.each do |grouping|
+      #   puts grouping
+      #   sleep 1
+      #   grouping.split(//).each do |char|
+      #     add_sample(writer, char)
+      #   end
+      #   add_blank(writer)
+      # end
     end # digits
   end # writer
 end # lines
