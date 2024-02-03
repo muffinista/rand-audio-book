@@ -1,0 +1,147 @@
+<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{"VoiceNameToIdMapItems":[{"Id":"087e625d-ea24-4084-bea7-1cd8615d8900","Name":"Microsoft Server Speech Text to Speech Voice (en-US, EmmaNeural)","ShortName":"en-US-EmmaNeural","Locale":"en-US","VoiceType":"StandardVoice"}]}-->
+<!--ID=FCB40C2B-1F9F-4C26-B1A1-CF8E67BE07D1;Version=1|{"Files":{}}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{"Locales":{"en-US":{"AutoApplyCustomLexiconFiles":[{}]}}}-->
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+
+<voice name="en-US-EmmaNeural">
+<p>Muffin Audio Books Presents</p>
+<break  />
+
+<p>A Million Random Digits with 100,000 Normal Deviates</p>
+
+<break strength="x-strong" />
+
+<p>Foreword to the Audio Edition</p>
+
+<break  />
+
+<p>This book was a product of RAND's computing power (and patience). The tables of random numbers in the book have become a standard reference in engineering and econometrics textbooks and have been widely used in gaming and simulations that employ Monte Carlo trials. Still the largest known source of random digits and normal deviates, the work is routinely used by statisticians, physicists, polltakers, market analysts, lottery administrators, and quality control engineers.</p>
+
+<p>A humorous sidelight: The New York Public Library originally indexed this book under the heading "Psychology."</p>
+
+<break strength="x-strong" />
+
+<p>Acknowledgments</p>
+<break  />
+
+<p>The following persons participated in the production, testing, and preparation for publication of the tables of random digits and random normal deviates: Paul Armer, E. C. Bower, Mrs. Bernice Brown, G. W. Brown, Walter Frantz, J. J. Goodpasture, W. F. Gunning, Cecil Hastings, Olaf Helmer, M. L. Juncosa, J. D. Madden, A. M. Mood, R. T. Nash, J. D. Williams. These tables were prepared in connection with analyses done for the United States Air Force.</p>
+
+<break strength="x-strong" />
+
+
+
+<p>FOREWORD</p>
+<break strength="x-strong" />
+
+<p>THE volume you are holding documents a remarkable undertaking by a group of mathematicians, engineers, and data-processors at RAND in the 1940s and 1950s (the corporation's formative years) to create a very large assembly of randomly distributed numbers, or digits. Within such an assembly, if it is truly random, no pattern of occurrences whatsoever - as measured, for example, by frequency or by serial association - exists, regardless of the user's starting point in the array. Patternlessness is, in fact, the sought-for ideal.</p>
+
+<p>To what purpose? In a recent article in the Science section of the New York Times, the author, George Johnson, explains:</p>
+
+<p>For cryptography, game playing, sociological surveys and various scientific calculations, people often need series of numbers that are devoid of pattern. And that is a tall order. Generating true randomness is one of computer science's most difficult challenges.*</p>
+
+<p>Given a state of randomness, predictability fails; in a decimal table, the probability for the occurrence of the next digit is everywhere the same, whatever the number selected (from 0 through 9).</p>
+
+<p>Once they are equipped with a sufficiently large sequence of random digits like the present one, political poll-takers, for example, can confidently calculate outcomes that depend on probability assumptions. In the area of engineering, use of the tables assembled here can save both time and money. Take the problem faced by a quality-control team tasked with inspecting critical welds in an aging metal bridge. Instead of (in effect) dismantling the structure to accomplish the mission, the inspectors can select a sufficiently large random sample of welds for examination - a reliable surrogate for the whole bridge and proceed to measure the integrity of the complete structure. Or consider the case of a submarine commander who is reported to have kept a copy of this set of tables by him on patrol duty, using selections from it to randomize a jinking course for purposes of evasion.</p>
+
+<p>Early in the conduct of RAND research, a demand arose for random numbers to be used in solving problems by probability procedures - known as Monte Carlo methods. Existing tables of such numbers were limited in size; applied to RAND problems, they would have to be used repeatedly, thus introducing the danger of unwanted correlations. The construction of a table with the capacity of the present one resulted from ingenious exploitation of punched-card computational techniques then available. It has become a standard reference in engineering and econometric textbooks.</p>
+
+<p>Details of the production of the one-million random digits contained in this volume are provided in the Introduction. Several short tables draw on the expected and the actually observed frequency of occurrence of familiar poker hands, together with a "goodness-of- fit" calculation. An "electronic roulette wheel" (if you will) was used to yield the basic randomization; the team members then applied re-randomization steps to produce the random digits of the whole. Modern random number generators use radioactive decay or atmospheric noise, among other methods.</p>
+
+<p>The 100,000 "normal deviates" cited in the title of this volume constitute a subset of random numbers whose occurrence can be plotted on a bell-shaped curve. RAND legend has it that this seemingly self-contradictory mathematical expression caused the New York Public Library to misshelve the volume in the Psychology section.</p>
+
+<p>The volume you hold was first published by the Free Press in June 1955; it had sold 500 copies by October. By September 1971, the collection was in its third printing and had sold nearly 7,000 copies. After a distinguished history as a standard reference, it went out of print in 1989 and was placed in RAND's reprint series (RP-295). To reach a wider audience in a more fitting form, it is today being reissued as a RAND Monograph Report.</p>
+
+<p>Michael D. Rich</p>
+<break />
+
+<p>Executive Vice President</p>
+<break />
+
+<p>RAND</p>
+<break />
+
+
+
+<break strength="x-strong" />
+
+<p>Introduction</p>
+<break strength="x-strong" />
+
+<p>Early in the course of research at The RAND Corporation a demand arose for random numbers; these were needed to solve problems of various kinds by experimental probability procedures, which have come to be called Monte Carlo methods. Many of the applications required a large supply of random digits or normal deviates of high quality, and the tables presented here were produced to meet those requirements. The numbers have been used extensively by research workers at RAND, and by many others, in the solution of a wide range of problems during the past seven years.
+One distinguishing feature of the digit table is its size. On numerous RAND problems the largest existing table of Kendall and Smith, 1939, would have had to be used many times over, with the consequent dangers of introducing unwanted correlations. The feasibility of working with as large a table as the present one resulted from developments in computing machinery which made possible the solving of very complicated distribution problems in a reasonable time by Monte Carlo methods. The tables were constructed primarily for use with punched card machines. With the high-speed electronic computers recently developed, the storage of such tables is usually not practical and, in fact, much larger tables than the present one are often required; these machines have caused research workers to turn to pseudo-random numbers which are computed by simple arithmetic processes directly by the machine as needed. These developments are summarized in Juncosa, 1953; Meyer, Gephart, and Rasmussen, 1954; and Moshman, 1954, where other references may be found. The Monte Carlo Method, 1951; Curtiss, 1949; Kahn and Marshall, 1953; and Kahn, 1956, discuss the uses and applications of the Monte Carlo methods and give references to other applications.</p>
+<break strength="x-strong" />
+
+
+<p>Production of the Random Digits</p>
+<break strength="x-strong" />
+
+<p>The random digits in this book were produced by rerandomization of a basic table generated by an electronic roulette wheel. Briefly, a random frequency pulse source, providing on the average about 100,000 pulses per second, was gated about once per second by a constant frequency pulse. Pulse standardization circuits passed the pulses through a 5-place binary counter. In principle the machine was a 32-place roulette wheel which made, on the average, about 3000 revolutions per trial and produced one number per second. A binary-to-decimal converter was used which converted 20 of the 32 numbers (the other twelve were discarded) and retained only the final digit of two-digit numbers; this final digit was fed into an IBM punch to produce finally a punched card table of random digits.
+Production from the original machine showed statistically significant biases, and the engineers had to make several modifications and refinements of the circuits before production of apparently satisfactory numbers was achieved. The basic table of a million digits was then produced during May and June of 1947. This table was subjected to fairly exhaustive tests and it was found that it still contained small but statistically significant biases. For example, Table One shows the results of three tests (described later) on two blocks of 125,000 digits:</p>
+
+<p>Block 1 was produced immediately after a careful tune-up of the machine; Block 2 was produced after one month of continuous operation without adjustment. Apparently the machine had been running down despite the fact that periodic electronic checks indicated it had remained in good order.</p>
+
+<p>The table was regarded as reasonably satisfactory because the deviations from expectations in the various tests were all very small — the largest being less than 2 per cent — and no further effort was made to generate better numbers with the machine. However, the table was transformed by adding pairs of digits modulo 10 in order to improve the distribution of the digits. There were 20,000 punched cards with 50 digits per card; each digit on a given card was added modulo 10 to the corresponding digit of the preceding card to yield a rerandomized digit. It is this transformed table which is published here and which is the subject of the tests described below.</p>
+
+<p>The transformation was expected to, and did, improve the distribution in view of a limit theorem to the effect that sums of random variables modulo 1 have the uniform distribution over the unit interval as their limiting distribution. (See Horton and Smith, 1949, for a version of this theorem for discrete variates.)</p>
+
+<p>These tables were reproduced by photo-offset from pages printed by the IBM model 856 Cardatype. Because of the very nature of the tables, it did not seem necessary to proofread every page of the final manuscript in order to catch random errors of the Cardatype. All pages were scanned for systematic errors, every twentieth page was proofread (starting with page 10 for both the digits and deviates), and every fortieth page (starting with page 5 for both the digits and deviates) was summed and the totals checked against sums obtained from the cards.</p>
+<break strength="x-strong" />
+
+<p>Tests on the Random Digits</p>
+<break strength="x-strong" />
+
+<p>Frequency Tests. The table was divided into 1000 blocks of 1000 digits each and the frequency of each digit was recorded for each block. Then for each block a goodness-of-fit x squared was computed with 9 d.f. These 1000 values of x squared provided an empirical fit to the x squared distribution (with 9 d.f.); to test the fit, a goodness-of-fit x squared was computer using 50 class intervals, each of which was expected to contain 2 per cent of the values. (The number of intervals was chosen in accordance with the result of Wald and Mann, 1942.) The value of the test x squared was 54.6 which, for 49 d.f., corresponded to about the 0.45 probability level.</p>
+  
+<p>To examine further the frequencies, the digits were tallied in 20 blocks of 50,000 digits each. The results are shown in Table 1 together with the goodness-of-fit x squared for each block. On the total frequencies the x squared (13.316) for 9 d.f. has been partitioned into three components as follows:</p>
+  
+<p>Of the 200 frequencies recorded in Table 1, 59 (29.5 per cent) deviate from 5000 by more than σ (= 30√5 = 67.08), and 8 (4 per cent) deviate from 5000 by more than 2σ. Of the twenty x squared values in Table 1, eight exceed the 50 per cent value (8.34), two fall below the 10 per cent value (4.17), and two exceed the 90 per cent value (14.7).</p>
+
+<break strength="x-strong" />
+<p>Poker Tests.</p>
+<p>Sets of 5 digits in blocks of 5000 digits were taken to be poker hands and were classified.</p>
+
+<p>There were 200 sets of 1000 poker hands in the table, and for each set a goodness-of-fit x squared was computed with 5 d.f. (the fours and fives were combined). The manner in which these 200 values fit the x squared distribution is shown in Table 2.</p>
+
+<p>The combined frequencies of poker hands in the whole table are shown in Table 3. The largest difference between expected and observed frequencies (for threes) is about 2.25 times its standard deviation, which is roughly at about the 9 or 10 per cent probability level (looking merely at the largest of five independent normal observations).</p>
+
+<p>Also, the frequencies of poker hands were computed for each of ten blocks of 100,000 digits and the mean and standard deviation was computed from the ten values for each kind of hand. The results are shown in Table 4.</p>
+<break strength="x-strong" />
+
+<p>Serial and Run Tests.</p>
+<p>Some further tests were made on the first block of 50,000 digits to look particularly for any evidence of serial association among the digits. The serial test classified every successive pair of digits by each digit of the pair in a ten-by-ten table. The frequencies of the different pairs are given in Table 5, where the first digit of the pair is shown in the left column of the table and the second digit is shown at the top. Thus there were 510 cases in which a zero followed a one. The frequency x squared for the row (or column) totals is 7.56, which is about the 0.60 probability level for 9 d.f.</p>
+
+<p>Table 5 can be tested by a criterion originally due to Kendall and Smith, 1939, and revised by Good, 1953. Assuming all pairs equally likely we get a normalized sum of squared deviations of 107.8. However, this statistic does not have a x squared-distribution. On the other hand, it is the sum of the error variation and twice the row (or column) variation, where under the assumption of perfect randomness, the error variation is asymptotically distributed like x squared with 81 degrees of freedom. We take the error variation as our test criterion. This gives a x squared of 107.8 – 2(7.56) ~ 92.7, which is about the 0.18 level for 81 degrees of freedom.</p>
+
+<p>Finally, in the same block of 50,000 digits all runs were counted with the obviously satisfactory results shown in Table 6.</p>
+<break strength="x-strong" />
+
+<p>Normal Deviates</p>
+<break  />
+
+<p>Half of the random digit table was used to produce 100,000 standard normal deviates by solving for x in Equation (1). The 1948 Bureau of Standards tables of F(x) were used.</p>
+
+<p>The deviates were determined by the five-digit numbers on the left-hand half of every page of the digit table. The deviates in the first column correspond page by page with the five-figure digits in the first column of the first 200 pages of the digit table; the deviates in the second column correspond page by page with the first column of the second 200 pages of the digit table. Similarly, the third and fourth columns of deviates were derived from the second column of five-figure digits, etc.</p>
+
+<p>A x squared test of the fit of the entire table of deviates to the normal distribution was performed using 400 class intervals (Mann and Wald, 1942) with roughly 250 expected in each. The x squared value was found to be 346.4, which for 399 d.f. indicates a very close fit; the probability of a larger value of x squared is about 0.97. The detailed data for this test are given in Table 7.</p>
+
+<break strength="x-strong" />
+
+<p>Use of the Tables</p>
+<break strength="x-strong" />
+
+<p>The lines of the digit table are numbered from 00000 to 19999. In any use of the table, one should first find a random starting position. A common procedure for doing this is to open the book to an unselected page of the digit table and blindly choose a five-digit number; this number with the first digit reduced modulo 2 determines the starting line; the two digits to the right of the initially selected five- digit number are reduced modulo 50 to determine the starting column in the starting line. To guard against the tendency of books to open repeatedly at the same page and the natural tendency of a person to choose a number toward the center of the page: every five-digit number used to determine a starting position should be marked and not used a second time for this purpose.</p>
+
+<p>The digit table is also used to find a random starting position in the deviate table: Select a five-digit number as before; the first four digits give the starting line (the lines being numbered from 0000 to 9999) and the fifth digit gives the starting position in the line.</p>
+
+<p>Ordinarily, the table is read in the same direction as a book is read; however, the size of the table may be effectively increased by varying the direction in which it is read. Thus, one may read columns instead of lines, may read the table backward, may read lines forward but pages from bottom to top, etc. Of course, care must be taken in using these devices to avoid introducing correlations when the table is used more than once on the same problem.</p>
+
+<p>To obtain a random permutation of the integers 1, 2, . . . , n, select a random starting position; use the five-digit number containing the starting position and the following n – 1 five-digit numbers; put the integers in the same order as these n five-digit numbers. In case of ties among the five-digit numbers, use additional columns to the right to make six or more digit numbers. The same procedure is used to obtain a random permutation of n objects, some of which are indistinguishable, by merely numbering the objects arbitrarily from 1 to n.</p>
+
+<p>To obtain random observations from any distribution G(x), use Equation 1, substitute G(x) for F(x), and employ as many digits in D as required for the desired accuracy of the observations. Of course the negative exponent of 10 in Equation 1 must be equal to the number of digits in D. If G(x) has a discontinuity at x0, define it to be continuous on the right and take the solution of Equation 1 to be x0 when the left side of Equation 1 falls between G(x0-) and G(x0).</p>
+
+<p>A technique suggested by von Neumann, called the "rejection method," enables one to substitute for the solution of Equation 1 a stochastic process involving a much simpler computation; this technique is discussed in Kahn, 1956.</p>
+
+<p>In general, to obtain a random observation from a bivariate population with distribution G(x,y), one uses a marginal distribution on one variate, say, G1(x), and the conditional distribution, say, G2(y/x), on the other. Two random numbers determine the observation: one determines x by employing G1(x) in Equation 1, and the other determines y by employing G2(y/x) in Equation 1. The direct generalization of this procedure will determine observations from multivariate populations.</p>
+
+</voice>
+</speak>
