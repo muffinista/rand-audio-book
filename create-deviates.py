@@ -37,14 +37,14 @@ with open("data/deviates.txt", encoding="utf-8") as f:
 # https://stackoverflow.com/questions/65949790/how-to-append-audio-frames-to-wav-file-python
 
 
-chapter_size = 1000
+chapter_size = 500
 all_lines = read_data.split("\n")
 
 # remove blank lines
 while("" in all_lines):
     all_lines.remove("")
 
-chapters = chunks(all_lines, 100)
+chapters = chunks(all_lines, 500)
 
 count = 1
 for lines in chapters:
@@ -57,7 +57,7 @@ for lines in chapters:
         # we need to prefix with a zero to reuse the existing phrase from the main book
         line = "0" + line
 
-        print(line)
+        print(str(count) + " " + line)
 
         phrases = line.split()
         for phrase in phrases:
@@ -78,7 +78,7 @@ for lines in chapters:
                     fname = "negative"
                 
                 filename = os.path.join(sample_dir, fname + ".wav")
-                print(filename)
+                # print(filename)
 
                 sample = wave.open(filename, 'rb')
                 params = sample.getparams()
@@ -93,11 +93,11 @@ for lines in chapters:
 
                 sample.close()
 
-            print("quick break post phrase")
+#            print("quick break post phrase")
             pause(output, 10000)
 
 
-        print("add pause")
+#        print("add pause")
         pause(output, 30000)
 
     output.close()
