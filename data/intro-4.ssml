@@ -1,0 +1,26 @@
+<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{"VoiceNameToIdMapItems":[{"Id":"087e625d-ea24-4084-bea7-1cd8615d8900","Name":"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)","ShortName":"en-US-JennyNeural","Locale":"en-US","VoiceType":"StandardVoice"}]}-->
+<!--ID=FCB40C2B-1F9F-4C26-B1A1-CF8E67BE07D1;Version=1|{"Files":{}}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{"Locales":{"en-US":{"AutoApplyCustomLexiconFiles":[{}]}}}-->
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+
+<voice name="en-US-JennyNeural">
+
+<p>Use of the Tables</p>
+<break strength="x-strong" />
+
+<p>The lines of the digit table are numbered from 00000 to 19999. In any use of the table, one should first find a random starting position. A common procedure for doing this is to open the book to an unselected page of the digit table and blindly choose a five-digit number; this number with the first digit reduced modulo 2 determines the starting line; the two digits to the right of the initially selected five- digit number are reduced modulo 50 to determine the starting column in the starting line. To guard against the tendency of books to open repeatedly at the same page and the natural tendency of a person to choose a number toward the center of the page: every five-digit number used to determine a starting position should be marked and not used a second time for this purpose.</p>
+
+<p>The digit table is also used to find a random starting position in the deviate table: Select a five-digit number as before; the first four digits give the starting line (the lines being numbered from 0000 to 9999) and the fifth digit gives the starting position in the line.</p>
+
+<p>Ordinarily, the table is read in the same direction as a book is read; however, the size of the table may be effectively increased by varying the direction in which it is read. Thus, one may read columns instead of lines, may read the table backward, may read lines forward but pages from bottom to top, etc. Of course, care must be taken in using these devices to avoid introducing correlations when the table is used more than once on the same problem.</p>
+
+<p>To obtain a random permutation of the integers 1, 2, . . . , n, select a random starting position; use the five-digit number containing the starting position and the following n – 1 five-digit numbers; put the integers in the same order as these n five-digit numbers. In case of ties among the five-digit numbers, use additional columns to the right to make six or more digit numbers. The same procedure is used to obtain a random permutation of n objects, some of which are indistinguishable, by merely numbering the objects arbitrarily from 1 to n.</p>
+
+<p>To obtain random observations from any distribution G(x), use Equation 1, substitute G(x) for F(x), and employ as many digits in D as required for the desired accuracy of the observations. Of course the negative exponent of 10 in Equation 1 must be equal to the number of digits in D. If G(x) has a discontinuity at x0, define it to be continuous on the right and take the solution of Equation 1 to be x0 when the left side of Equation 1 falls between G(x0-) and G(x0).</p>
+
+<p>A technique suggested by von Neumann, called the "rejection method," enables one to substitute for the solution of Equation 1 a stochastic process involving a much simpler computation; this technique is discussed in Kahn, 1956.</p>
+
+<p>In general, to obtain a random observation from a bivariate population with distribution G(x,y), one uses a marginal distribution on one variate, say, G1(x), and the conditional distribution, say, G2(y/x), on the other. Two random numbers determine the observation: one determines x by employing G1(x) in Equation 1, and the other determines y by employing G2(y/x) in Equation 1. The direct generalization of this procedure will determine observations from multivariate populations.</p>
+
+</voice>
+</speak>

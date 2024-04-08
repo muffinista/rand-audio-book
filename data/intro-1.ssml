@@ -1,0 +1,53 @@
+<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{"VoiceNameToIdMapItems":[{"Id":"087e625d-ea24-4084-bea7-1cd8615d8900","Name":"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)","ShortName":"en-US-JennyNeural","Locale":"en-US","VoiceType":"StandardVoice"}]}-->
+<!--ID=FCB40C2B-1F9F-4C26-B1A1-CF8E67BE07D1;Version=1|{"Files":{}}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{"Locales":{"en-US":{"AutoApplyCustomLexiconFiles":[{}]}}}-->
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+
+<voice name="en-US-JennyNeural">
+
+
+<p>FOREWORD</p>
+<break strength="x-strong" />
+
+<p>THE volume you are holding documents a remarkable undertaking by a group of mathematicians, engineers, and data-processors at RAND in the 1940s and 1950s (the corporation's formative years) to create a very large assembly of randomly distributed numbers, or digits. Within such an assembly, if it is truly random, no pattern of occurrences whatsoever - as measured, for example, by frequency or by serial association - exists, regardless of the user's starting point in the array. Patternlessness is, in fact, the sought-for ideal.</p>
+
+<p>To what purpose? In a recent article in the Science section of the New York Times, the author, George Johnson, explains:</p>
+
+<p>For cryptography, game playing, sociological surveys and various scientific calculations, people often need series of numbers that are devoid of pattern. And that is a tall order. Generating true randomness is one of computer science's most difficult challenges.</p>
+
+<p>Given a state of randomness, predictability fails; in a decimal table, the probability for the occurrence of the next digit is everywhere the same, whatever the number selected (from 0 through 9).</p>
+
+<p>Once they are equipped with a sufficiently large sequence of random digits like the present one, political poll-takers, for example, can confidently calculate outcomes that depend on probability assumptions. In the area of engineering, use of the tables assembled here can save both time and money. Take the problem faced by a quality-control team tasked with inspecting critical welds in an aging metal bridge. Instead of (in effect) dismantling the structure to accomplish the mission, the inspectors can select a sufficiently large random sample of welds for examination - a reliable surrogate for the whole bridge and proceed to measure the integrity of the complete structure. Or consider the case of a submarine commander who is reported to have kept a copy of this set of tables by him on patrol duty, using selections from it to randomize a jinking course for purposes of evasion.</p>
+
+<p>Early in the conduct of RAND research, a demand arose for random numbers to be used in solving problems by probability procedures - known as Monte Carlo methods. Existing tables of such numbers were limited in size; applied to RAND problems, they would have to be used repeatedly, thus introducing the danger of unwanted correlations. The construction of a table with the capacity of the present one resulted from ingenious exploitation of punched-card computational techniques then available. It has become a standard reference in engineering and econometric textbooks.</p>
+
+<p>Details of the production of the one-million random digits contained in this volume are provided in the Introduction. Several short tables draw on the expected and the actually observed frequency of occurrence of familiar poker hands, together with a "goodness-of-fit" calculation. An "electronic roulette wheel" (if you will) was used to yield the basic randomization; the team members then applied re-randomization steps to produce the random digits of the whole. Modern random number generators use radioactive decay or atmospheric noise, among other methods.</p>
+
+<p>The 100,000 "normal deviates" cited in the title of this volume constitute a subset of random numbers whose occurrence can be plotted on a bell-shaped curve. RAND legend has it that this seemingly self-contradictory mathematical expression caused the New York Public Library to misshelve the volume in the Psychology section.</p>
+
+<p>The volume you hold was first published by the Free Press in June 1955; it had sold 500 copies by October. By September 1971, the collection was in its third printing and had sold nearly 7,000 copies. After a distinguished history as a standard reference, it went out of print in 1989 and was placed in RAND's reprint series (RP-295). To reach a wider audience in a more fitting form, it is today being reissued as a RAND Monograph Report.</p>
+
+<p>Michael D Rich</p>
+<break />
+
+<p>Executive Vice President</p>
+<break />
+
+<p>RAND</p>
+<break />
+
+
+
+<break strength="x-strong" />
+
+<p>Introduction</p>
+<break strength="x-strong" />
+
+<p>Early in the course of research at The RAND Corporation a demand arose for random numbers; these were needed to solve problems of various kinds by experimental probability procedures, which have come to be called Monte Carlo methods. Many of the applications required a large supply of random digits or normal deviates of high quality, and the tables presented here were produced to meet those requirements. The numbers have been used extensively by research workers at RAND, and by many others, in the solution of a wide range of problems during the past seven years.</p>
+
+<p>One distinguishing feature of the digit table is its size. On numerous RAND problems the largest existing table of Kendall and Smith, 1939, would have had to be used many times over, with the consequent dangers of introducing unwanted correlations. The feasibility of working with as large a table as the present one resulted from developments in computing machinery which made possible the solving of very complicated distribution problems in a reasonable time by Monte Carlo methods. The tables were constructed primarily for use with punched card machines. With the high-speed electronic computers recently developed, the storage of such tables is usually not practical and, in fact, much larger tables than the present one are often required; these machines have caused research workers to turn to pseudo-random numbers which are computed by simple arithmetic processes directly by the machine as needed. These developments are summarized in Juncosa, 1953; Meyer, Gephart, and Rasmussen, 1954; and Moshman, 1954, where other references may be found. The Monte Carlo Method, 1951; Curtiss, 1949; Kahn and Marshall, 1953; and Kahn, 1956, discuss the uses and applications of the Monte Carlo methods and give references to other applications.</p>
+<break strength="x-strong" />
+
+
+</voice>
+</speak>

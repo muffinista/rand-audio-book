@@ -52,7 +52,7 @@ for lines in chapters:
 
     print(count)
     print(lines)
-    output = wave.open(os.path.join(output_dir, "chapter" + str(count) + ".wav"), 'wb')
+    output = wave.open(os.path.join(output_dir, "chapter" + str(count).zfill(3) + ".wav"), 'wb')
 
     for line in lines:
         phrases = line.split()

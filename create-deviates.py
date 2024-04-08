@@ -50,7 +50,7 @@ count = 1
 for lines in chapters:
     first = True
 
-    output = wave.open(os.path.join(output_dir, "deviates" + str(count) + ".wav"), 'wb')
+    output = wave.open(os.path.join(output_dir, "deviates" + str(count).zfill(3) + ".wav"), 'wb')
 
     for line in lines:
         # each line is prefaced with the line number, but since there's only 10000 lines,

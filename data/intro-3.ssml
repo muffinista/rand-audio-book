@@ -1,0 +1,48 @@
+<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{"VoiceNameToIdMapItems":[{"Id":"087e625d-ea24-4084-bea7-1cd8615d8900","Name":"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)","ShortName":"en-US-JennyNeural","Locale":"en-US","VoiceType":"StandardVoice"}]}-->
+<!--ID=FCB40C2B-1F9F-4C26-B1A1-CF8E67BE07D1;Version=1|{"Files":{}}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{"Locales":{"en-US":{"AutoApplyCustomLexiconFiles":[{}]}}}-->
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+
+<voice name="en-US-JennyNeural">
+
+<p>Tests on the Random Digits</p>
+<break strength="x-strong" />
+
+<p>Frequency Tests. The table was divided into 1000 blocks of 1000 digits each and the frequency of each digit was recorded for each block. Then for each block a goodness-of-fit x squared was computed with 9 d.f. These 1000 values of x squared provided an empirical fit to the x squared distribution (with 9 d.f.); to test the fit, a goodness-of-fit x squared was computer using 50 class intervals, each of which was expected to contain 2 per cent of the values. (The number of intervals was chosen in accordance with the result of Wald and Mann, 1942.) The value of the test x squared was 54.6 which, for 49 d.f., corresponded to about the 0.45 probability level.</p>
+  
+<p>To examine further the frequencies, the digits were tallied in 20 blocks of 50,000 digits each. The results are shown in Table 1 together with the goodness-of-fit x squared for each block. On the total frequencies the x squared (13.316) for 9 d.f. has been partitioned into three components as follows:</p>
+  
+<p>Of the 200 frequencies recorded in Table 1, 59 (29.5 per cent) deviate from 5000 by more than σ (= 30√5 = 67.08), and 8 (4 per cent) deviate from 5000 by more than 2σ. Of the twenty x squared values in Table 1, eight exceed the 50 per cent value (8.34), two fall below the 10 per cent value (4.17), and two exceed the 90 per cent value (14.7).</p>
+
+<break strength="x-strong" />
+<p>Poker Tests.</p>
+<p>Sets of 5 digits in blocks of 5000 digits were taken to be poker hands and were classified.</p>
+
+<p>There were 200 sets of 1000 poker hands in the table, and for each set a goodness-of-fit x squared was computed with 5 d.f. (the fours and fives were combined). The manner in which these 200 values fit the x squared distribution is shown in Table 2.</p>
+
+<p>The combined frequencies of poker hands in the whole table are shown in Table 3. The largest difference between expected and observed frequencies (for threes) is about 2.25 times its standard deviation, which is roughly at about the 9 or 10 per cent probability level (looking merely at the largest of five independent normal observations).</p>
+
+<p>Also, the frequencies of poker hands were computed for each of ten blocks of 100,000 digits and the mean and standard deviation was computed from the ten values for each kind of hand. The results are shown in Table 4.</p>
+<break strength="x-strong" />
+
+<p>Serial and Run Tests.</p>
+<p>Some further tests were made on the first block of 50,000 digits to look particularly for any evidence of serial association among the digits. The serial test classified every successive pair of digits by each digit of the pair in a ten-by-ten table. The frequencies of the different pairs are given in Table 5, where the first digit of the pair is shown in the left column of the table and the second digit is shown at the top. Thus there were 510 cases in which a zero followed a one. The frequency x squared for the row (or column) totals is 7.56, which is about the 0.60 probability level for 9 d.f.</p>
+
+<p>Table 5 can be tested by a criterion originally due to Kendall and Smith, 1939, and revised by Good, 1953. Assuming all pairs equally likely we get a normalized sum of squared deviations of 107.8. However, this statistic does not have a x squared-distribution. On the other hand, it is the sum of the error variation and twice the row (or column) variation, where under the assumption of perfect randomness, the error variation is asymptotically distributed like x squared with 81 degrees of freedom. We take the error variation as our test criterion. This gives a x squared of 107.8 – 2(7.56) ~ 92.7, which is about the 0.18 level for 81 degrees of freedom.</p>
+
+<p>Finally, in the same block of 50,000 digits all runs were counted with the obviously satisfactory results shown in Table 6.</p>
+<break strength="x-strong" />
+
+<p>Normal Deviates</p>
+<break strength="strong" />
+
+<p>Half of the random digit table was used to produce 100,000 standard normal deviates by solving for x in Equation (1). The 1948 Bureau of Standards tables of F(x) were used.</p>
+
+<p>The deviates were determined by the five-digit numbers on the left-hand half of every page of the digit table. The deviates in the first column correspond page by page with the five-figure digits in the first column of the first 200 pages of the digit table; the deviates in the second column correspond page by page with the first column of the second 200 pages of the digit table. Similarly, the third and fourth columns of deviates were derived from the second column of five-figure digits, etc.</p>
+
+<p>A x squared test of the fit of the entire table of deviates to the normal distribution was performed using 400 class intervals (Mann and Wald, 1942) with roughly 250 expected in each. The x squared value was found to be 346.4, which for 399 d.f. indicates a very close fit; the probability of a larger value of x squared is about 0.97. The detailed data for this test are given in Table 7.</p>
+
+<break strength="x-strong" />
+
+</voice>
+</speak>

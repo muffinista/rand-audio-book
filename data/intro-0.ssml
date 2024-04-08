@@ -1,0 +1,51 @@
+<!--ID=B7267351-473F-409D-9765-754A8EBCDE05;Version=1|{"VoiceNameToIdMapItems":[{"Id":"087e625d-ea24-4084-bea7-1cd8615d8900","Name":"Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)","ShortName":"en-US-JennyNeural","Locale":"en-US","VoiceType":"StandardVoice"}]}-->
+<!--ID=FCB40C2B-1F9F-4C26-B1A1-CF8E67BE07D1;Version=1|{"Files":{}}-->
+<!--ID=5B95B1CC-2C7B-494F-B746-CF22A0E779B7;Version=1|{"Locales":{"en-US":{"AutoApplyCustomLexiconFiles":[{}]}}}-->
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
+
+<voice name="en-US-JennyNeural">
+<p>Muffin Audio Books Presents</p>
+<break strength="strong" />
+
+<p>A Million Random Digits with 100,000 Normal Deviates</p>
+
+<break strength="x-strong" />
+
+<p>Foreword to the Audio Edition</p>
+
+<break strength="strong" />
+
+<p>This book was a product of RAND's computing power (and patience). The tables of random numbers in the book have become a standard reference in engineering and econometrics textbooks and have been widely used in gaming and simulations that employ Monte Carlo trials. Still the largest known source of random digits and normal deviates, the work is routinely used by statisticians, physicists, polltakers, market analysts, lottery administrators, and quality control engineers.</p>
+
+<p>A humorous sidelight: The New York Public Library originally indexed this book under the heading "Psychology."</p>
+
+<break strength="x-strong" />
+
+<p>Acknowledgments</p>
+<break strength="strong" />
+
+<p>The following persons participated in the production, testing, and preparation for publication of the tables of random digits and random normal deviates</p>
+
+<p>Paul Armer</p>
+<p><say-as interpret-as="characters">EC</say-as> Bower</p>
+<p>Mrs. Bernice Brown</p>
+<p><say-as interpret-as="characters">GW</say-as> Brown</p>
+<p>Walter Frantz</p>
+<p><say-as interpret-as="characters">JJ</say-as> Goodpasture</p>
+<p><say-as interpret-as="characters">WF</say-as> Gunning</p>
+<p>Cecil Hastings</p>
+<p>Olaf Helmer</p>
+<p><say-as interpret-as="characters">ML</say-as> Juncosa</p>
+<p><say-as interpret-as="characters">JD</say-as> Madden</p>
+<p><say-as interpret-as="characters">AM</say-as> Mood</p>
+<p><say-as interpret-as="characters">RT</say-as> Nash</p>
+<p><say-as interpret-as="characters">JD</say-as> Williams</p>
+
+<break strength="strong" />
+
+<p>These tables were prepared in connection with analyses done for the United States Air Force.</p>
+
+<break strength="x-strong" />
+
+</voice>
+</speak>
