@@ -14,6 +14,7 @@ import time
 import wave
 import random
 
+chapter_size = 50
 sample_dir = "samples/"
 output_dir = "output/"
 
@@ -37,14 +38,13 @@ with open("data/deviates.txt", encoding="utf-8") as f:
 # https://stackoverflow.com/questions/65949790/how-to-append-audio-frames-to-wav-file-python
 
 
-chapter_size = 500
 all_lines = read_data.split("\n")
 
 # remove blank lines
 while("" in all_lines):
     all_lines.remove("")
 
-chapters = chunks(all_lines, 500)
+chapters = chunks(all_lines, 50)
 
 count = 1
 for lines in chapters:
