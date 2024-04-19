@@ -13,6 +13,7 @@ import os
 import time
 import wave
 import random
+import glob
 
 chapter_size = 50
 sample_dir = "samples/"
@@ -46,11 +47,28 @@ while("" in all_lines):
 
 chapters = chunks(all_lines, 50)
 
-count = 1
+intro_files = glob.glob(output_dir + "/*Intro*.wav")
+chapter_files = glob.glob(output_dir + "/*Chapter*.wav")
+
+count = len(intro_files) + len(chapter_files) + 1
+index = 1
+
+
 for lines in chapters:
     first = True
 
-    output = wave.open(os.path.join(output_dir, "deviates" + str(count).zfill(3) + ".wav"), 'wb')
+    dest = os.path.join(output_dir, str(count).zfill(3) + "-Deviates-" + str(index).zfill(3) + ".wav")
+    count = count + 1
+    index = index + 1
+    
+    if os.path.isfile(dest) and os.environ.get('FORCE', False) != "True" and os.path.getsize(dest) > 0:
+        print("Skipping " + dest)
+        continue
+
+
+    print("Generating " + dest)
+    
+    output = wave.open(dest, 'wb')
 
     for line in lines:
         # each line is prefaced with the line number, but since there's only 10000 lines,
@@ -93,12 +111,9 @@ for lines in chapters:
 
                 sample.close()
 
-#            print("quick break post phrase")
             pause(output, 10000)
 
 
-#        print("add pause")
         pause(output, 30000)
 
     output.close()
-    count = count + 1

@@ -9,8 +9,12 @@ RUN wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1
     rm libssl1.1_1.1.1f-1ubuntu2_amd64.deb && \
     wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb --no-check-certificate -O packages-microsoft-prod.deb \
     && dpkg -i packages-microsoft-prod.deb \
-    && rm packages-microsoft-prod.deb
-	
+    && rm packages-microsoft-prod.deb \
+    && apt update \
+    && apt -y --fix-broken install \
+    && apt -y dist-upgrade \
+    && apt-get install -y ffmpeg
+
 
 WORKDIR /usr/src/app
 

@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-# docker run --rm -it -v "$PWD":/usr/src/app rand-audio ./sample.py
-
 
 from dotenv import load_dotenv
 
@@ -13,6 +11,7 @@ import os
 import time
 import wave
 import random
+import glob
 
 chapter_size = 50
 sample_dir = "samples/"
@@ -38,7 +37,6 @@ with open("data/digits.txt", encoding="utf-8") as f:
 # https://stackoverflow.com/questions/65949790/how-to-append-audio-frames-to-wav-file-python
 
 
-
 all_lines = read_data.split("\n")
 
 # remove blank lines
@@ -47,19 +45,33 @@ while("" in all_lines):
 
 chapters = chunks(all_lines, chapter_size)
 
-count = 1
+
+files = glob.glob(output_dir + "/*Intro*.wav")
+
+count = len(files) + 1
+index = 1
+
 for lines in chapters:
     first = True
+    dest = os.path.join(output_dir, str(count).zfill(3) + "-Chapter-" + str(index).zfill(3) + ".wav")
+    count = count + 1
+    index = index + 1
+    
+    if os.path.isfile(dest) and os.environ.get('FORCE', False) != "True" and os.path.getsize(dest) > 0:
+        print("Skipping " + dest)
+        continue
 
-    print(count)
-    print(lines)
-    output = wave.open(os.path.join(output_dir, "chapter" + str(count).zfill(3) + ".wav"), 'wb')
+    print("Generating " + dest)
+    
+    #print(count)
+    #print(lines)
+    output = wave.open(dest, 'wb')
 
     for line in lines:
         phrases = line.split()
         for phrase in phrases:
             filename = os.path.join(sample_dir, phrase + ".wav")
-            print(filename)
+            #print(filename)
 
             sample = wave.open(filename, 'rb')
             params = sample.getparams()
@@ -74,12 +86,12 @@ for lines in chapters:
 
             sample.close()
 
-            print("quick break")
+            # print("quick break")
             pause(output, 10000)
 
 
-        print("add pause")
+        #print("add pause")
         pause(output, 30000)
 
     output.close()
-    count = count + 1
+

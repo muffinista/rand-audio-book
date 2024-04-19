@@ -10,3 +10,4 @@ regex==2023.8.8
 six==1.16.0
 tzlocal==5.0.1
 wave==0.0.2
+python-ffmpeg==2.0.12
