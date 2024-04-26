@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
 
-# docker run --rm -it -v "$PWD":/usr/src/app rand-audio ./sample.py
-
 
 from dotenv import load_dotenv
 
@@ -15,9 +13,12 @@ import wave
 import random
 import glob
 
+from shared import *
+
 chapter_size = 50
 sample_dir = "samples/"
 output_dir = "output/"
+final_dir = "mp3/"
 
 # https://www.geeksforgeeks.org/break-list-chunks-size-n-python/
 def chunks(l, n): 
@@ -56,64 +57,72 @@ index = 1
 
 for lines in chapters:
     first = True
-
     dest = os.path.join(output_dir, str(count).zfill(3) + "-Deviates-" + str(index).zfill(3) + ".wav")
-    count = count + 1
-    index = index + 1
+
     
     if os.path.isfile(dest) and os.environ.get('FORCE', False) != "True" and os.path.getsize(dest) > 0:
         print("Skipping " + dest)
-        continue
-
-
-    print("Generating " + dest)
+    else:
+        print("Generating " + dest)
     
-    output = wave.open(dest, 'wb')
+        output = wave.open(dest, 'wb')
 
-    for line in lines:
-        # each line is prefaced with the line number, but since there's only 10000 lines,
-        # we need to prefix with a zero to reuse the existing phrase from the main book
-        line = "0" + line
+        for line in lines:
+            # each line is prefaced with the line number, but since there's only 10000 lines,
+            # we need to prefix with a zero to reuse the existing phrase from the main book
+            line = "0" + line
 
-        print(str(count) + " " + line)
+            print(str(count) + " " + line)
 
-        phrases = line.split()
-        for phrase in phrases:
-            if phrase == phrases[0]:
-                digits = [phrase]
-            else:
-                digits = list(phrase)
+            phrases = line.split()
+            for phrase in phrases:
+                if phrase == phrases[0]:
+                    digits = [phrase]
+                else:
+                    digits = list(phrase)
 
-                if digits[-1] == "-":
-                    del digits[-1]
-                    digits.insert(0, "-")
+                    if digits[-1] == "-":
+                        del digits[-1]
+                        digits.insert(0, "-")
 
-            for digit in digits:
-                fname = digit
-                if digit == ".":
-                    fname = "point"
-                elif digit == "-":
-                    fname = "negative"
+                for digit in digits:
+                    fname = digit
+                    if digit == ".":
+                        fname = "point"
+                    elif digit == "-":
+                        fname = "negative"
                 
-                filename = os.path.join(sample_dir, fname + ".wav")
-                # print(filename)
+                    filename = os.path.join(sample_dir, fname + ".wav")
+                    # print(filename)
 
-                sample = wave.open(filename, 'rb')
-                params = sample.getparams()
-                frames = sample.readframes(sample.getnframes())
+                    sample = wave.open(filename, 'rb')
+                    params = sample.getparams()
+                    frames = sample.readframes(sample.getnframes())
 
-                # only do this once!
-                if first:
-                    output.setparams(params)
-                    first = False
+                    # only do this once!
+                    if first:
+                        output.setparams(params)
+                        first = False
 
-                output.writeframes(frames)
+                    output.writeframes(frames)
 
-                sample.close()
+                    sample.close()
 
-            pause(output, 10000)
+                pause(output, 10000)
 
 
-        pause(output, 30000)
+            pause(output, 30000)
 
-    output.close()
+        output.close()
+
+
+    mp3_dest = os.path.join(final_dir, str(count).zfill(3) + "-Deviates-" + str(index).zfill(3) + ".mp3")
+    
+    if os.path.isfile(mp3_dest) and os.environ.get('FORCE', False) != "True" and os.path.getsize(mp3_dest) > 0:
+        print("Skipping " + mp3_dest)
+    else:
+        print("Generating " + mp3_dest)
+        generate_mp3(dest, mp3_dest, assets_dir + "numbers-small.jpg", "Chapter " + str(count) + " - Digits", index, 1000)
+
+    count = count + 1
+    index = index + 1

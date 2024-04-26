@@ -13,9 +13,14 @@ import wave
 import random
 import glob
 
+from shared import *
+
+
 chapter_size = 50
 sample_dir = "samples/"
 output_dir = "output/"
+assets_dir = "/usr/src/app/assets/"
+final_dir = "mp3/"
 
 # https://www.geeksforgeeks.org/break-list-chunks-size-n-python/
 def chunks(l, n): 
@@ -30,6 +35,7 @@ def pause(dest, count):
     output.writeframes(blank)    
 
 pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
+pathlib.Path(final_dir).mkdir(parents=True, exist_ok=True)
 
 with open("data/digits.txt", encoding="utf-8") as f:
     read_data = f.read()
@@ -54,44 +60,51 @@ index = 1
 for lines in chapters:
     first = True
     dest = os.path.join(output_dir, str(count).zfill(3) + "-Chapter-" + str(index).zfill(3) + ".wav")
-    count = count + 1
-    index = index + 1
+    mp3_dest = os.path.join(final_dir, str(count).zfill(3) + "-Chapter-" + str(index).zfill(3) + ".mp3")
     
     if os.path.isfile(dest) and os.environ.get('FORCE', False) != "True" and os.path.getsize(dest) > 0:
         print("Skipping " + dest)
-        continue
-
-    print("Generating " + dest)
+    else:
+        print("Generating " + dest)
     
-    #print(count)
-    #print(lines)
-    output = wave.open(dest, 'wb')
+        #print(count)
+        #print(lines)
+        output = wave.open(dest, 'wb')
 
-    for line in lines:
-        phrases = line.split()
-        for phrase in phrases:
-            filename = os.path.join(sample_dir, phrase + ".wav")
-            #print(filename)
+        for line in lines:
+            phrases = line.split()
+            for phrase in phrases:
+                filename = os.path.join(sample_dir, phrase + ".wav")
+                #print(filename)
 
-            sample = wave.open(filename, 'rb')
-            params = sample.getparams()
-            frames = sample.readframes(sample.getnframes())
+                sample = wave.open(filename, 'rb')
+                params = sample.getparams()
+                frames = sample.readframes(sample.getnframes())
 
-            # only do this once!
-            if first:
-                output.setparams(params)
-                first = False
+                # only do this once!
+                if first:
+                    output.setparams(params)
+                    first = False
 
-            output.writeframes(frames)
+                output.writeframes(frames)
 
-            sample.close()
+                sample.close()
 
-            # print("quick break")
-            pause(output, 10000)
+                # print("quick break")
+                pause(output, 10000)
 
 
-        #print("add pause")
-        pause(output, 30000)
+            #print("add pause")
+            pause(output, 30000)
 
-    output.close()
+            output.close()
 
+    
+    if os.path.isfile(mp3_dest) and os.environ.get('FORCE', False) != "True" and os.path.getsize(mp3_dest) > 0:
+        print("Skipping " + mp3_dest)
+    else:
+        print("Generating " + mp3_dest)
+        generate_mp3(dest, mp3_dest, assets_dir + "numbers-small.jpg", "Chapter " + str(count) + " - Digits", index, 1000)
+
+    count = count + 1
+    index = index + 1
