@@ -1,6 +1,12 @@
 from ffmpeg import FFmpeg, Progress
 
 
+# https://www.geeksforgeeks.org/break-list-chunks-size-n-python/
+def chunks(l, n): 
+    # looping till length l 
+    for i in range(0, len(l), n):  
+        yield l[i:i + n] 
+
 def generate_mp3(src, dest, cover, title, track_number, total_number):
     ffmpeg = (
         FFmpeg()
